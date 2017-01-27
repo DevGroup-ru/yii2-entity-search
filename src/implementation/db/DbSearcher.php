@@ -101,11 +101,17 @@ class DbSearcher extends AbstractSearcher
                 $response->query = $activeQuery;
                 $success = true;
                 break;
+            case BaseSearch::SEARCH_RESULT_ARRAY:
             case BaseSearch::SEARCH_RESULT:
                 /** @var ResultResponse $response */
                 // query for debug
                 $response->query = $activeQuery;
-                $response->pages = $pages;
+                if (is_object($pages)) {
+                    $response->pages = $pages;
+                }
+                if ($returnType === BaseSearch::SEARCH_RESULT_ARRAY) {
+                    $activeQuery->asArray(true);
+                }
                 $response->entities = $activeQuery->all();
                 $e = new SearchEvent(
                     $searchQuery,
@@ -130,7 +136,10 @@ class DbSearcher extends AbstractSearcher
                         $mainEntityClassName::primaryKey()
                     )
                 );
-                $response->ids = $activeQuery->all();
+                $response->ids = $activeQuery
+                    ->distinct(true)
+                    ->asArray(true)
+                    ->column();
                 $response->query = $activeQuery;
                 $success = true;
                 break;

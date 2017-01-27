@@ -13,6 +13,7 @@ class BaseSearch extends yii\base\Component
     const SEARCH_COUNT = 1;
     const SEARCH_QUERY = 2;
     const SEARCH_IDS = 3;
+    const SEARCH_RESULT_ARRAY = 4;
 
     /**
      * @inheritdoc

@@ -43,6 +43,7 @@ abstract class AbstractSearcher extends yii\base\Component
             case BaseSearch::SEARCH_COUNT:
                 return new CountResponse();
                 break;
+            case BaseSearch::SEARCH_RESULT_ARRAY:
             case BaseSearch::SEARCH_RESULT:
                 return new ResultResponse();
                 break;

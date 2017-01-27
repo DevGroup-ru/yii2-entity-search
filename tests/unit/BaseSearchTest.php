@@ -3,10 +3,8 @@
 namespace DevGroup\EntitySearch\Tests\unit;
 
 use DevGroup\EntitySearch\base\BaseSearch;
-use DevGroup\EntitySearch\base\SearchResponse;
 use DevGroup\EntitySearch\response\ResultResponse;
 use DevGroup\EntitySearch\Tests\models\Product;
-use Yii;
 
 class BaseSearchTest extends BaseTest
 {
@@ -54,6 +52,5 @@ class BaseSearchTest extends BaseTest
         $this->assertCount(3, $response->entities);
         $this->assertSame(5, $response->searchQuery->pagination->totalCount);
         $this->assertSame('EXS-123', $response->entities[0]->sku);
-        codecept_debug($response);
     }
 }

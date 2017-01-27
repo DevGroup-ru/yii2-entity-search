@@ -108,6 +108,17 @@ class SearchQuery extends yii\base\Component
         return $this;
     }
 
+    public function order($order)
+    {
+        $this->order = $order;
+        return $this;
+    }
+    public function limit($limit)
+    {
+        $this->limit = $limit;
+        return $this;
+    }
+
     /**
      * Fills mainEntityAttributes filtration and return searchQuery
      * @param array $mainEntityAttributes
@@ -179,6 +190,14 @@ class SearchQuery extends yii\base\Component
     public function all()
     {
         return $this->baseSearch->searchQuery($this, BaseSearch::SEARCH_RESULT);
+    }
+
+    /**
+     * @return \DevGroup\EntitySearch\base\SearchResponse
+     */
+    public function allArray()
+    {
+        return $this->baseSearch->searchQuery($this, BaseSearch::SEARCH_RESULT_ARRAY);
     }
 
     /**

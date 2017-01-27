@@ -16,7 +16,7 @@ $config = [
         ],
         'search' => [
             'class' => 'DevGroup\EntitySearch\components\Search',
-        ]
+        ],
     ],
 ];
 

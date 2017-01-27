@@ -8,7 +8,7 @@ use yii;
 class ResultResponse extends QueryResponse
 {
     /**
-     * @var yii\db\ActiveRecord[]|SearchableEntity[] Entities
+     * @var yii\db\ActiveRecord[]|SearchableEntity[]|array Entities
      */
     public $entities = [];
     /** @var  yii\data\Pagination */
